@@ -1,15 +1,17 @@
 # 在同一個 Foundry 資料夾編譯不同版本的 Solidity 合約
 
-## ⚠️ WARNING! ⚠️
-
-在 foundry 正式支援多重 `solc` 設置前，筆者強烈建議將不同版本的 solidity 合約各自獨立編譯，以避免未 `foundry.toml` 完成全面的隔離設定，而產生互相覆蓋編譯結果的情況。
-
 ## TD;LR
 
+### 方法一
+
+在 `foundry.toml` 裡加上 `auto_detect_solc = true`（ foundry 的預設值就為真）。依此設定，即可不用建立多重版本 `Profile`。
+
+
+### 方法二
 **建立多重版本的 [`Profile`](https://book.getfoundry.sh/reference/config/overview#profiles)** \
 只需要在每個指令前加上 `FOUNDRY_PROFILE=` 關鍵字，即可讓 foundry 套用不同設定檔運作。
 
-## 實際範例
+## 方法二的實際範例
 
 假設我們需要撰寫兩份 solidity 合約：一份使用 `solc` v0.4.26，另一份使用 `solc` v0.8.0。
 
